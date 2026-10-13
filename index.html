@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="ShopNova — আপনার পছন্দের পণ্য অনলাইনে কিনুন।">
+<title>ShopNova | অনলাইন শপ</title>
+<style>
+:root{--ink:#18212f;--muted:#667085;--brand:#5b4bdb;--brand2:#7668f5;--bg:#f6f7fb;--card:#fff;--line:#e8eaf1;--green:#16845b}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Bengali",sans-serif;background:var(--bg);color:var(--ink)}
+button,input,select{font:inherit}button{cursor:pointer}.wrap{width:min(1160px,92%);margin:auto}
+.topbar{background:#171b2b;color:#fff;text-align:center;padding:9px;font-size:13px}
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.nav{display:flex;align-items:center;gap:22px;padding:16px 0}.logo{font-size:24px;font-weight:850;letter-spacing:-1px;white-space:nowrap}.logo span{color:var(--brand)}
+.search{flex:1;display:flex;background:#f3f4f8;border:1px solid var(--line);border-radius:12px;padding:4px 12px;gap:8px}.search input{width:100%;border:0;background:transparent;outline:0;padding:8px}
+.nav-actions{display:flex;gap:9px}.btn{border:0;border-radius:11px;padding:11px 15px;font-weight:700;background:var(--brand);color:white}.btn:hover{background:#4637c2}.btn-light{background:#f0efff;color:var(--brand)}.btn-outline{background:#fff;color:var(--ink);border:1px solid var(--line)}
+.hero{margin:26px auto 28px;background:linear-gradient(120deg,#211b52,#5b4bdb 62%,#9b91ff);color:#fff;border-radius:24px;overflow:hidden;display:grid;grid-template-columns:1.15fr .85fr;min-height:300px}
+.hero-copy{padding:38px 40px;align-self:center}.eyebrow{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#d7d2ff;font-weight:800}.hero h1{font-size:clamp(29px,4vw,48px);line-height:1.15;margin:12px 0}.hero p{color:#e7e4ff;max-width:480px;line-height:1.7}.hero .btn{background:#fff;color:#382caa;margin-top:10px}
+.hero-art{display:grid;place-items:center;font-size:clamp(100px,17vw,190px);background:radial-gradient(circle at 50% 48%,#c4bdff 0,#8b7cff 25%,transparent 65%);position:relative}
+.hero-art:after{content:"";position:absolute;width:190px;height:190px;border:1px solid #ffffff55;border-radius:50%}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;margin:30px 0 16px}.section-head h2{margin:0;font-size:24px}.section-head p{margin:5px 0 0;color:var(--muted);font-size:14px}
+.categories{display:flex;gap:10px;flex-wrap:wrap}.chip{border:1px solid var(--line);background:#fff;padding:9px 15px;border-radius:999px;color:#4b5565}.chip.active,.chip:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.product{background:var(--card);border:1px solid var(--line);border-radius:17px;overflow:hidden;transition:transform .15s,box-shadow .15s}.product:hover{transform:translateY(-3px);box-shadow:0 12px 28px #242a4412}.product-art{height:175px;display:grid;place-items:center;font-size:75px;background:linear-gradient(135deg,#f1efff,#f8f7ff);position:relative}.tag{position:absolute;left:12px;top:12px;background:#fff;color:var(--green);font-size:11px;font-weight:800;padding:5px 8px;border-radius:7px}.product-info{padding:15px}.product-info h3{margin:0 0 7px;font-size:16px}.desc{font-size:13px;color:var(--muted);min-height:38px;line-height:1.5}.price-row{display:flex;align-items:center;gap:8px;margin:12px 0}.price{font-weight:850;font-size:18px}.old{color:#98a0ae;text-decoration:line-through;font-size:13px}.add{width:100%;padding:10px;border:0;border-radius:10px;background:#f0efff;color:var(--brand);font-weight:800}.add:hover{background:var(--brand);color:#fff}
+.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:32px 0}.benefit{background:#fff;border:1px solid var(--line);border-radius:15px;padding:20px;display:flex;gap:13px;align-items:center}.benefit-icon{font-size:28px}.benefit strong{display:block}.benefit small{color:var(--muted)}
+footer{background:#171b2b;color:#fff;margin-top:40px;padding:30px 0}.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}.foot p{color:#b8bdcc;font-size:13px;max-width:430px}
+.overlay{position:fixed;inset:0;background:#10142688;z-index:30;display:none}.overlay.show{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(440px,100%);background:#fff;padding:22px;display:flex;flex-direction:column;box-shadow:-10px 0 40px #0002}.drawer-head{display:flex;justify-content:space-between;align-items:center}.drawer h2{margin:0}.x{border:0;background:#f0f1f5;border-radius:9px;padding:8px 12px}.cart-items{flex:1;overflow:auto;margin:20px 0}.cart-item{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}.cart-emoji{font-size:34px;background:#f2f0ff;border-radius:10px;padding:8px}.cart-item-info{flex:1}.cart-item-info small{color:var(--muted)}.qty{display:flex;gap:9px;align-items:center;margin-top:7px}.qty button{border:1px solid var(--line);background:#fff;border-radius:6px;width:27px;height:27px}.cart-bottom{border-top:1px solid var(--line);padding-top:15px}.total{display:flex;justify-content:space-between;font-size:19px;font-weight:850;margin-bottom:14px}.cart-bottom .btn{width:100%}
+.modal{display:none;position:fixed;inset:0;z-index:40;background:#10142699;place-items:center;padding:16px}.modal.show{display:grid}.modal-card{background:#fff;width:min(520px,100%);border-radius:20px;padding:24px;max-height:90vh;overflow:auto}.modal-card h2{margin-top:0}.field{display:grid;gap:6px;margin:13px 0}.field label{font-size:14px;font-weight:700}.field input,.field select,.field textarea{border:1px solid #dfe2ea;border-radius:10px;padding:11px;width:100%;background:#fff}.field textarea{min-height:70px;resize:vertical}.notice{font-size:12px;color:var(--muted);line-height:1.5}.empty{text-align:center;padding:40px 10px;color:var(--muted)}
+@media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr .6fr}.hero-copy{padding:28px}.hero-art{font-size:105px}.nav{gap:10px}.nav-actions .btn-outline{display:none}}
+@media(max-width:560px){.nav{flex-wrap:wrap}.logo{font-size:22px}.search{order:3;flex-basis:100%}.nav-actions{margin-left:auto}.hero{grid-template-columns:1fr;min-height:unset}.hero-copy{padding:27px 24px 10px}.hero-art{height:115px;font-size:82px}.hero-art:after{width:100px;height:100px}.section-head h2{font-size:21px}.grid{gap:10px}.product-art{height:135px;font-size:58px}.product-info{padding:11px}.product-info h3{font-size:14px}.desc{font-size:12px}.price{font-size:16px}.benefits{grid-template-columns:1fr;gap:9px}.benefit{padding:14px}}
+</style>
+</head>
+<body>
+<div class="topbar">🎉 প্রথম অর্ডারে বিশেষ অফার • নিরাপদ কেনাকাটা • সারা বাংলাদেশে ডেলিভারি</div>
+<header><div class="wrap nav">
+  <div class="logo">Shop<span>Nova</span></div>
+  <div class="search"><span>⌕</span><input id="searchInput" type="search" placeholder="আপনি কী খুঁজছেন?" aria-label="পণ্য খুঁজুন"></div>
+  <div class="nav-actions"><button class="btn btn-outline" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">পণ্য দেখুন</button><button class="btn" onclick="openCart()">🛒 কার্ট <span id="cartCount">0</span></button></div>
+</div></header>
+<main class="wrap">
+<section class="hero">
+  <div class="hero-copy"><div class="eyebrow">আপনার পছন্দ, এক জায়গায়</div><h1>স্মার্ট কেনাকাটা<br>শুরু হোক এখানেই</h1><p>দৈনন্দিন প্রয়োজন থেকে পছন্দের গ্যাজেট—সহজে খুঁজুন, পছন্দ করুন, অর্ডার দিন।</p><button class="btn" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">এখনই কেনাকাটা করুন →</button></div>
+  <div class="hero-art" aria-label="শপিং ব্যাগ">🛍️</div>
+</section>
+<div class="section-head"><div><h2>ক্যাটাগরি অনুযায়ী খুঁজুন</h2><p>আপনার পছন্দের বিভাগ বেছে নিন</p></div></div>
+<div class="categories" id="categories">
+  <button class="chip active" data-cat="সব">সব পণ্য</button><button class="chip" data-cat="গ্যাজেট">📱 গ্যাজেট</button><button class="chip" data-cat="ফ্যাশন">👕 ফ্যাশন</button><button class="chip" data-cat="লাইফস্টাইল">🏡 লাইফস্টাইল</button><button class="chip" data-cat="অ্যাক্সেসরিজ">🎒 অ্যাক্সেসরিজ</button>
+</div>
+<section id="products">
+<div class="section-head"><div><h2>জনপ্রিয় পণ্য</h2><p id="resultCount">আপনার জন্য বাছাই করা পণ্য</p></div><select id="sortSelect" aria-label="পণ্য সাজান" style="padding:9px;border:1px solid var(--line);border-radius:10px;background:#fff"><option value="featured">জনপ্রিয়</option><option value="low">দাম: কম থেকে বেশি</option><option value="high">দাম: বেশি থেকে কম</option></select></div>
+<div class="grid" id="productGrid"></div>
+</section>
+<section class="benefits">
+<div class="benefit"><div class="benefit-icon">🚚</div><div><strong>সহজ ডেলিভারি</strong><small>আপনার ঠিকানায় পণ্য পৌঁছে দিন</small></div></div>
+<div class="benefit"><div class="benefit-icon">🔒</div><div><strong>নিরাপদ কেনাকাটা</strong><small>অর্ডারের আগে বিস্তারিত জেনে নিন</small></div></div>
+<div class="benefit"><div class="benefit-icon">💬</div><div><strong>সহায়তা দরকার?</strong><small>অর্ডার ও পণ্য সম্পর্কে যোগাযোগ করুন</small></div></div>
+</section>
+</main>
+<footer><div class="wrap foot"><div><div class="logo">Shop<span>Nova</span></div><p>আপনার অনলাইন কেনাকাটার সহজ ঠিকানা। এটি একটি প্রাথমিক ডেমো শপ—নিজের পণ্য, যোগাযোগের তথ্য ও অর্ডার ব্যবস্থা যোগ করে নিন।</p></div><div><strong>যোগাযোগ</strong><p>আপনার ফোন নম্বর এখানে যোগ করুন<br>আপনার ইমেইল এখানে যোগ করুন</p></div><div><strong>সহায়তা</strong><p>ডেলিভারি নীতি<br>রিটার্ন নীতি<br>গোপনীয়তা নীতি</p></div></div></footer>
+
+<div class="overlay" id="cartOverlay" onclick="if(event.target===this)closeCart()"><aside class="drawer"><div class="drawer-head"><h2>আপনার কার্ট 🛒</h2><button class="x" onclick="closeCart()">✕</button></div><div class="cart-items" id="cartItems"></div><div class="cart-bottom"><div class="total"><span>মোট</span><span id="cartTotal">৳০</span></div><button class="btn" onclick="openCheckout()">অর্ডার করতে এগিয়ে যান</button><p class="notice">ডেমো সংস্করণ: অর্ডার পাঠানোর আগে আপনার ব্যবসার যোগাযোগ ও অর্ডার গ্রহণের ব্যবস্থা যুক্ত করুন।</p></div></aside></div>
+<div class="modal" id="checkoutModal"><div class="modal-card"><div class="drawer-head"><h2>অর্ডারের তথ্য</h2><button class="x" onclick="closeCheckout()">✕</button></div><form id="checkoutForm">
+<div class="field"><label for="customerName">আপনার নাম *</label><input id="customerName" required placeholder="পুরো নাম"></div>
+<div class="field"><label for="customerPhone">মোবাইল নম্বর *</label><input id="customerPhone" required inputmode="tel" placeholder="01XXXXXXXXX"></div>
+<div class="field"><label for="customerAddress">ডেলিভারির ঠিকানা *</label><textarea id="customerAddress" required placeholder="বাসা, রাস্তা, এলাকা, জেলা"></textarea></div>
+<div class="field"><label for="payment">পেমেন্ট পদ্ধতি</label><select id="payment"><option>ক্যাশ অন ডেলিভারি</option><option>আগে পেমেন্ট (ম্যানুয়ালি নিশ্চিত করতে হবে)</option></select></div>
+<p class="notice">এটি একটি ফ্রন্টএন্ড ডেমো। নিচের বোতামে চাপলে অর্ডারের বিবরণ আপনার ডিভাইসের শেয়ার/মেসেজ অ্যাপে পাঠানোর জন্য প্রস্তুত হবে; এখানে কোনো সার্ভারে অর্ডার সংরক্ষণ বা পেমেন্ট নেওয়া হয় না।</p>
+<button class="btn" type="submit" style="width:100%">অর্ডারের বিবরণ তৈরি করুন</button></form></div></div>
+<div class="modal" id="orderModal"><div class="modal-card"><div class="drawer-head"><h2>অর্ডারের বিবরণ তৈরি হয়েছে</h2><button class="x" onclick="closeOrder()">✕</button></div><p id="orderText" style="white-space:pre-wrap;line-height:1.7"></p><button class="btn" onclick="copyOrder()" style="width:100%">বিবরণ কপি করুন</button><p class="notice">কপি করা বিবরণ দোকানদার/আপনার অর্ডার নম্বরে পাঠান। লাইভ অর্ডার পেতে পরে WhatsApp নম্বর বা সার্ভার যুক্ত করতে হবে।</p></div></div>
+<script>
+const products=[
+{id:1,name:"ওয়্যারলেস হেডফোন",cat:"গ্যাজেট",price:1450,old:1800,emoji:"🎧",desc:"আরামদায়ক ডিজাইন, দৈনন্দিন ব্যবহারের জন্য",tag:"জনপ্রিয়"},
+{id:2,name:"স্মার্ট ওয়াচ",cat:"গ্যাজেট",price:2250,old:2700,emoji:"⌚",desc:"স্মার্ট লুক ও দরকারি ফিচার",tag:"অফার"},
+{id:3,name:"ক্যাজুয়াল টি-শার্ট",cat:"ফ্যাশন",price:650,old:800,emoji:"👕",desc:"আরামদায়ক পোশাক, প্রতিদিনের স্টাইল",tag:"নতুন"},
+{id:4,name:"মিনিমাল ব্যাকপ্যাক",cat:"অ্যাক্সেসরিজ",price:1190,old:1450,emoji:"🎒",desc:"কাজ, পড়াশোনা ও ভ্রমণে উপযোগী",tag:"জনপ্রিয়"},
+{id:5,name:"টেবিল ল্যাম্প",cat:"লাইফস্টাইল",price:890,old:1050,emoji:"💡",desc:"পড়ার টেবিলে সুন্দর ও ব্যবহারিক সংযোজন",tag:""},
+{id:6,name:"মোবাইল স্ট্যান্ড",cat:"অ্যাক্সেসরিজ",price:350,old:450,emoji:"📱",desc:"ভিডিও দেখা ও অনলাইন ক্লাসের জন্য",tag:"বাজেট"},
+{id:7,name:"স্কিনকেয়ার সেট",cat:"লাইফস্টাইল",price:990,old:1250,emoji:"🧴",desc:"দৈনন্দিন যত্নের জন্য একটি সেট",tag:""},
+{id:8,name:"সানগ্লাস",cat:"ফ্যাশন",price:550,old:700,emoji:"🕶️",desc:"ক্লাসিক ডিজাইন, ক্যাজুয়াল স্টাইল",tag:"নতুন"}
+];
+let activeCat="সব",cart={},lastOrder="";
+const money=n=>"৳"+Number(n).toLocaleString("bn-BD");
+function renderProducts(){let q=document.getElementById("searchInput").value.trim().toLowerCase();let arr=products.filter(p=>(activeCat==="সব"||p.cat===activeCat)&&(`${p.name} ${p.cat} ${p.desc}`.toLowerCase().includes(q)));let sort=document.getElementById("sortSelect").value;if(sort==="low")arr.sort((a,b)=>a.price-b.price);if(sort==="high")arr.sort((a,b)=>b.price-a.price);document.getElementById("resultCount").textContent=arr.length?`${arr.length}টি পণ্য পাওয়া গেছে`:"কোনো পণ্য পাওয়া যায়নি";document.getElementById("productGrid").innerHTML=arr.map(p=>`<article class="product"><div class="product-art">${p.tag?`<span class="tag">${p.tag}</span>`:""}<span>${p.emoji}</span></div><div class="product-info"><h3>${p.name}</h3><div class="desc">${p.desc}</div><div class="price-row"><span class="price">${money(p.price)}</span><span class="old">${money(p.old)}</span></div><button class="add" onclick="addToCart(${p.id})">＋ কার্টে যোগ করুন</button></div></article>`).join("")||'<div class="empty" style="grid-column:1/-1">দুঃখিত, এই নামে কোনো পণ্য নেই।</div>'}
+document.getElementById("categories").addEventListener("click",e=>{let b=e.target.closest("button[data-cat]");if(!b)return;activeCat=b.dataset.cat;document.querySelectorAll(".chip").forEach(x=>x.classList.toggle("active",x===b));renderProducts()});
+document.getElementById("searchInput").addEventListener("input",renderProducts);document.getElementById("sortSelect").addEventListener("change",renderProducts);
+function addToCart(id){cart[id]=(cart[id]||0)+1;updateCart();document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function changeQty(id,d){cart[id]=(cart[id]||0)+d;if(cart[id]<=0)delete cart[id];updateCart();document.getElementById("cartCount").textContent=Object.values(cart).reduce((a,b)=>a+b,0)}
+function updateCart(){let entries=Object.entries(cart);document.getElementById("cartItems").innerHTML=entries.length?entries.map(([id,q])=>{let p=products.find(x=>x.id==id);return `<div class="cart-item"><div class="cart-emoji">${p.emoji}</div><div class="cart-item-info"><strong>${p.name}</strong><br><small>${money(p.price)} × ${q}</small><div class="qty"><button onclick="changeQty(${p.id},-1)">−</button><span>${q}</span><button onclick="changeQty(${p.id},1)">+</button><button class="x" onclick="delete cart[${p.id}];updateCart();document.getElementById('cartCount').textContent=Object.values(cart).reduce((a,b)=>a+b,0)">সরান</button></div></div></div>`}).join(""):'<div class="empty">আপনার কার্ট এখন খালি।<br><br>পছন্দের পণ্য যোগ করুন।</div>';let total=entries.reduce((s,[id,q])=>s+products.find(p=>p.id==id).price*q,0);document.getElementById("cartTotal").textContent=money(total)}
+function openCart(){document.getElementById("cartOverlay").classList.add("show");updateCart()}function closeCart(){document.getElementById("cartOverlay").classList.remove("show")}
+function openCheckout(){if(!Object.keys(cart).length){alert("আগে কার্টে অন্তত একটি পণ্য যোগ করুন।");return}closeCart();document.getElementById("checkoutModal").classList.add("show")}function closeCheckout(){document.getElementById("checkoutModal").classList.remove("show")}function closeOrder(){document.getElementById("orderModal").classList.remove("show")}
+document.getElementById("checkoutForm").addEventListener("submit",e=>{e.preventDefault();let lines=Object.entries(cart).map(([id,q])=>{let p=products.find(x=>x.id==id);return `• ${p.name} × ${q} = ${money(p.price*q)}`});let total=Object.entries(cart).reduce((s,[id,q])=>s+products.find(p=>p.id==id).price*q,0);lastOrder=`ShopNova অর্ডার অনুরোধ\nনাম: ${document.getElementById("customerName").value}\nমোবাইল: ${document.getElementById("customerPhone").value}\nঠিকানা: ${document.getElementById("customerAddress").value}\nপেমেন্ট: ${document.getElementById("payment").value}\n\nপণ্য:\n${lines.join("\n")}\n\nমোট: ${money(total)}\n\nদয়া করে অর্ডারটি নিশ্চিত করুন।`;closeCheckout();document.getElementById("orderText").textContent=lastOrder;document.getElementById("orderModal").classList.add("show")});
+async function copyOrder(){try{await navigator.clipboard.writeText(lastOrder);alert("অর্ডারের বিবরণ কপি হয়েছে।")}catch(e){let t=document.createElement("textarea");t.value=lastOrder;document.body.appendChild(t);t.select();document.execCommand("copy");t.remove();alert("অর্ডারের বিবরণ কপি করার চেষ্টা করা হয়েছে।")}}
+renderProducts();updateCart();
+</script>
+</body>
+</html>
